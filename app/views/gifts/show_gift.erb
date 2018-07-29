@@ -1,0 +1,20 @@
+<h2><%=@user.username%>'s Gifts:</h2>
+<br>
+<p>Name: <%= @gift.name %></p>
+<p>Description: <%= @gift.description %></p>
+
+<% if @user == current_user %>
+<p><a href="/gifts/<%= @gift.slug %>/edit">Edit</a></p>
+<p><a href="/gifts/<%= @gift.slug %>/delete">Delete</a></p>
+<p><a href="/users/<%=current_user.slug%>/gifts"> Back to My Journal </a></p>
+<% end %>
+<br></br>
+<p><a href="/gifts/create_gift">Add Gift</a></p>
+<p><a href="/gifts">All Gifts</a></p>
+<p><a href="/">Home</a></p>
+<% if !logged_in? %>
+  <p><a href="/login">Log In</a></p>
+<% else %>
+  <p><a href="/logout">Log Out</a></p>
+<% end %>
+</br>

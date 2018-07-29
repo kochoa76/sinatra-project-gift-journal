@@ -1,0 +1,19 @@
+<h2>All Gifts:</h2>
+
+
+<% @gifts.each do |gift| %>
+<li><a href="/gifts/<%= gift.slug %>"><%= gift.name %></a></li>
+<%end%>
+
+
+<br></br>
+<p><a href="/gifts/create_gift">Add Gift</a></p>
+
+<% if !logged_in? %>
+  <p><a href="/login">Log In</a></p>
+<% else %>
+  <p><a href="/users/<%= current_user.slug %>/gifts">My Gifts</a></p>
+  <p><a href="/users/<%= current_user.slug %>">My Account</a></p>
+  <p><a href="/logout">Log Out</a></p>
+<% end %>
+<p><a href="/">Home</a></p>

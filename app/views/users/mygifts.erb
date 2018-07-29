@@ -1,0 +1,23 @@
+<h2> Welcome to your Gift Journal,  <%= current_user.username%>!</h2>
+
+<p>Ever wanted something but weren't quite ready to buy it for yourself?
+  <br>
+Add it to your list for that next time you're ready to make a purchase or share it with others! </p>
+
+<%= @user.username %>'s Gifts:
+<ul>
+<% @user.gifts.each do |gift| %>
+  <div>
+    <li><a href="/gifts/<%= gift.slug %>"><%= gift.name %></a></li>
+  </div>
+<% end %>
+</ul>
+<br></br>
+<p><a href="/gifts">All Gifts</a></p>
+<% if !logged_in? %>
+  <p><a href="/login">Log In</a></p>
+<% else %>
+  <p><a href="/gifts/create_gift">Add Gift</a></p>
+  <p><a href="/logout">Log Out</a></p>
+<% end %>
+<p><a href="/">Home</a></p>

@@ -1,0 +1,26 @@
+<div class="container">
+  <!-- <header><img src="images/corneal-small.png" class="img-responsive main-image"></header> -->
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Welcome to Gift Journal!</h2>
+
+    <div class="content">
+      <p> Gift Journal allows you to keep track of your desired gifts or wishes, much like a journal, and share your list with others!</p>
+        <p>Please sign up or log in to get started:</p>
+        <% if !logged_in? %>
+              <p><a href="/login">Log In</a></p>
+              <p><a href="/signup">Sign Up</a></p>
+            <% else %>
+              <p>Welcome, <%= current_user.username %>!</p>
+              <p><a href="/users/<%= current_user.slug %>/gifts">Go To My Journal</a></p>
+              <p><a href="/users/<%=current_user.slug%>"> Go To My Account </a></p>
+              <p><a href="/gifts">All Gifts</a></p>
+              <p><a href="/users/">All Users</a></p>
+              <p><a href="/logout">Log Out</a></p>
+            <% end %>
+    </div>
+
+  
+
+
+  </div>
+</div>

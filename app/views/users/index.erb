@@ -1,0 +1,17 @@
+
+<h2>List of Gift Journal Users</h2>
+<br>
+<% @users.each do |user| %>
+<ul>
+  <a href="/users/<%= user.slug %>"><%= user.username %></a>
+</ul>
+<% end %>
+<br></br>
+<p><a href="/users/<%=current_user.slug%>/gifts">Go To My Gift Journal</a></p>
+<p><a href="/">Home</a></p>
+<% if !logged_in? %>
+  <p><a href="/login">Log In</a></p>
+<% else %>
+  <p><a href="/logout">Log Out</a></p>
+<% end %>
+</br>
